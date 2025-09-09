@@ -5,8 +5,9 @@ public class Main {
 
         FCFS fcfs = new FCFS(datas);
         fcfs.run();
-        SJF sjf = new SJF(datas);
-        sjf.run();
+        // SJF sjf = new SJF(datas);
+        // sjf.run();
+        // datas.printData();
         // RR rr = new RR(datas, 10);
         // rr.run();
     }
