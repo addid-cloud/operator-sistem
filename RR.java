@@ -11,7 +11,6 @@ public class RR {
         int n = data.arrivTime.length;
         int completed = 0;
         int currentTime = 0;
-
         while (completed < n) {
             boolean executed = false;
             for (int i = 0; i < n; i++) {
@@ -20,7 +19,6 @@ public class RR {
                     int execTime = Math.min(quantum, data.remainingTime[i]);
                     data.remainingTime[i] -= execTime;
                     currentTime += execTime;
-
                     if (data.remainingTime[i] == 0) {
                         data.ct[i] = currentTime;
                         data.tat[i] = data.ct[i] - data.arrivTime[i];
@@ -29,12 +27,16 @@ public class RR {
                     }
                 }
             }
-
             if (!executed) {
                 currentTime++;
             }
         }
 
-        data.printData();
+        double totalWt = 0;
+        for (int i = 0; i < n; i++) {
+            totalWt += data.wt[i];
+        }
+        data.avgWt = totalWt / n;
+
     }
 }

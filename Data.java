@@ -2,24 +2,39 @@ class Data {
     int n = 100;
     int process[] = new int[n];
     int burstTime[] = new int[n];
+    int burstTimesec[] = new int[n];
     int arrivTime[] = new int[n];
+    int arrivTimesec[] = new int[n];
     int[] ct = new int[n];
+    int[] ctsec = new int[n];
     int[] tat = new int[n];
+    int[] tatsec = new int[n];
     int[] wt = new int[n];
+    int[] wtsec = new int[n];
     int[] remainingTime = new int[n];
+    int[] remainingTimesec = new int[n];
     double avgWt = 0;
+    double avgWtsec = 0;
     boolean[] done = new boolean[n];
+    boolean[] donesec = new boolean[n];
 
     public Data() {
         for (int i = 0; i < n; i++) {
             process[i] = i + 1;
             arrivTime[i] = (int) (Math.random() * 51);
+            arrivTimesec[i] = arrivTime[i];
             burstTime[i] = 1 + (int) (Math.random() * 10);
+            burstTimesec[i] = burstTime[i];
             ct[i] = 0;
+            ctsec[i] = ct[i];
             tat[i] = 0;
+            tatsec[i] = tat[i];
             wt[i] = 0;
+            wtsec[i] = wt[i];
             done[i] = false;
+            donesec[i] = done[i];
             remainingTime[i] = burstTime[i];
+            remainingTimesec[i] = remainingTime[i];
         }
     }
 
@@ -68,6 +83,19 @@ class Data {
                 }
             }
         }
+    }
+
+    public void reset() {
+        for (int i = 0; i < n; i++) {
+            arrivTime[i] = arrivTimesec[i];
+            burstTime[i] = burstTimesec[i];
+            ct[i] = 0;
+            tat[i] = 0;
+            wt[i] = 0;
+            remainingTime[i] = burstTimesec[i];
+            done[i] = false;
+        }
+        avgWt = 0;
     }
 
 }

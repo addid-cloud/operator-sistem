@@ -25,6 +25,6 @@ public class FCFS {
             totWt += data.wt[i];
         }
         data.avgWt = totWt / data.n;
-        data.printData();
+        // data.printData();
     }
 }
